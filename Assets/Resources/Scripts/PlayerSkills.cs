@@ -111,7 +111,7 @@ public class PlayerSkills : MonoBehaviour
         {
             if (Presstime <= 0.75f)
             {
-                Debug.Log("전방 30도 투척!");
+                //Debug.Log("전방 30도 투척!");
                 GenerateThrowObject(2);
                 IsKeyPress = false;
                 Presstime = 0.0f;
