@@ -12,25 +12,25 @@ public class FlashAlgorithm : MonoBehaviour
         FlashFire = Resources.Load<GameObject>("Prefabs/FlashFire");
         FlyingTime = 0.0f;
     }
-    
+
     void Update()
     {
         FlyingTime += Time.deltaTime;
-        if(FlyingTime>=1.5f)
+        if (FlyingTime >= 1.5f)
         {
             Destroy(this.gameObject);
             Flash();
             Debug.Log("시간지나서 섬광 격발");
-            
+
         }
     }
 
     void OnCollisionEnter(Collision coll)
     {
-            Debug.Log("충돌해서 섬광격발");
-            Flash();
-            Destroy(this.gameObject);
-        
+        Debug.Log("충돌해서 섬광격발");
+        Flash();
+        Destroy(this.gameObject);
+
 
     }
 

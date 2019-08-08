@@ -7,9 +7,11 @@ public class PlayerSkills : MonoBehaviour
 
     //==============================
     //투척형 스킬 변수들
-    
-    public GameObject ThrowObject;
     public float ThrowPower;
+
+    public GameObject ThrowObject;
+    public GameObject ThrowSmoke;
+    
 
     public GameObject ThrowFlash;
     //==============================
@@ -32,6 +34,7 @@ public class PlayerSkills : MonoBehaviour
         ThrowFlash = Resources.Load<GameObject>("Prefabs/ThrowFlash");
         Arrow = GameObject.Find("ArrowPoint");
         ThrowObject = Resources.Load<GameObject>("Prefabs/ThrowObject");
+        ThrowSmoke = Resources.Load<GameObject>("Prefabs/ThrowSmoke");
         Arrowrnd = Arrow.transform.Find("Arrow_0").GetComponent<SpriteRenderer>();
         ThrowPower = 400.0f;
         IsKeyPress = false;
@@ -77,7 +80,7 @@ public class PlayerSkills : MonoBehaviour
         }
 
         //====================================================
-        if (Input.GetKeyDown(KeyCode.Q))    //마취 분진탄
+        if (Input.GetKeyDown(KeyCode.Q))    //수면 안개탄(연막)
         {
             IsKeyPress = true;
         }
@@ -149,9 +152,9 @@ public class PlayerSkills : MonoBehaviour
 
     void GenerateThrowObject(int throwidx)
     {
-        if (throwidx == 1)      //마취 분진탄
+        if (throwidx == 1)      //수면안개탄(연막)
         {
-            GameObject newThrow = Instantiate(ThrowObject, Arrow.transform.position, Quaternion.identity);
+            GameObject newThrow = Instantiate(ThrowSmoke, Arrow.transform.position, Quaternion.identity);
             float angle = Arrow.transform.rotation.eulerAngles.z;
 
             Vector3 lDirection = new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle), Mathf.Sin(Mathf.Deg2Rad * angle));
