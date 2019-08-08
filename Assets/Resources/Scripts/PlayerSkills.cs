@@ -11,9 +11,8 @@ public class PlayerSkills : MonoBehaviour
 
     public GameObject ThrowObject;
     public GameObject ThrowSmoke;
-    
-
     public GameObject ThrowFlash;
+    public GameObject ThrowBlastsound;
     //==============================
     //설치형 스킬 변수들
     public GameObject TrapObject;
@@ -35,6 +34,7 @@ public class PlayerSkills : MonoBehaviour
         Arrow = GameObject.Find("ArrowPoint");
         ThrowObject = Resources.Load<GameObject>("Prefabs/ThrowObject");
         ThrowSmoke = Resources.Load<GameObject>("Prefabs/ThrowSmoke");
+        ThrowBlastsound = Resources.Load<GameObject>("Prefabs/ThrowBlastsound");
         Arrowrnd = Arrow.transform.Find("Arrow_0").GetComponent<SpriteRenderer>();
         ThrowPower = 400.0f;
         IsKeyPress = false;
@@ -132,8 +132,31 @@ public class PlayerSkills : MonoBehaviour
             }
         }
         //====================================================
-
-
+        if (Input.GetKeyDown(KeyCode.E))    //폭음 소리탄
+        {
+            IsKeyPress = true;
+        }
+        if (Input.GetKeyUp(KeyCode.E) && IsKeyPress)
+        {
+            if (Presstime <= 0.75f)
+            {
+                GenerateThrowObject(3);
+                IsKeyPress = false;
+                Presstime = 0.0f;
+            }
+            else
+            {
+                Debug.Log("화살표 까딱거려!!");
+                GenerateThrowObject(3);
+                IsKeyPress = false;
+                IsArrowRender = false;
+                Arrowrnd.enabled = false;
+                Clockwise = false;
+                Presstime = 0.0f;
+                ArrowInit();
+            }
+        }
+        //====================================================
         if (Input.GetKeyDown(KeyCode.A))     //설치형 스킬 (임시)
         {
             IsKeyPress = true;
@@ -166,6 +189,14 @@ public class PlayerSkills : MonoBehaviour
         else if(throwidx == 2)  //섬광 점화탄
         {
             GameObject newThrow = Instantiate(ThrowFlash, Arrow.transform.position, Quaternion.identity);
+            float angle = Arrow.transform.rotation.eulerAngles.z;
+            Vector3 lDirection = new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle), Mathf.Sin(Mathf.Deg2Rad * angle));
+            newThrow.GetComponent<Rigidbody>().AddForce(lDirection * ThrowPower);
+        }
+
+        else if (throwidx == 3)  //폭음 소리탄
+        {
+            GameObject newThrow = Instantiate(ThrowBlastsound, Arrow.transform.position, Quaternion.identity);
             float angle = Arrow.transform.rotation.eulerAngles.z;
             Vector3 lDirection = new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle), Mathf.Sin(Mathf.Deg2Rad * angle));
             newThrow.GetComponent<Rigidbody>().AddForce(lDirection * ThrowPower);
