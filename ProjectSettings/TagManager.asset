@@ -9,6 +9,7 @@ TagManager:
   - SMOKE
   - FALLENFLOOR
   - Platform
+  - BLASTSOUND
   layers:
   - Default
   - TransparentFX

@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: -2375842333445261234}
   m_Layer: 8
   m_Name: ThrowBlastsound
-  m_TagString: FLASH
+  m_TagString: BLASTSOUND
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
