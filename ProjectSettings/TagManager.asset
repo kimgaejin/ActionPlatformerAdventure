@@ -8,6 +8,7 @@ TagManager:
   - FLASH
   - SMOKE
   - FALLENFLOOR
+  - Platform
   layers:
   - Default
   - TransparentFX

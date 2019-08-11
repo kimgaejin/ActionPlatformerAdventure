@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 744459135028279297}
   - component: {fileID: 744459135028279302}
   - component: {fileID: 744459135028279303}
+  - component: {fileID: 8606021950167893524}
   m_Layer: 10
   m_Name: SmokeFire
-  m_TagString: Untagged
+  m_TagString: SMOKE
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4796,3 +4797,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SmokeFire: {fileID: 0}
   FlyingTime: 0
+--- !u!65 &8606021950167893524
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744459135028279300}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0.5, z: 0}
