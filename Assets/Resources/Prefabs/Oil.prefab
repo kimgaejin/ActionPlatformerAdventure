@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 6907574688942281753}
   - component: {fileID: 799442339008634953}
   - component: {fileID: 7059007310249554692}
-  - component: {fileID: 5771746098660472861}
+  - component: {fileID: 1501942054995417655}
   m_Layer: 0
   m_Name: Oil
   m_TagString: Untagged
@@ -170,20 +170,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &5771746098660472861
-MeshCollider:
+--- !u!65 &1501942054995417655
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6095289864253683109}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 10.000001, y: 0.16, z: 9.999999}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6663551069858686617
 GameObject:
   m_ObjectHideFlags: 0

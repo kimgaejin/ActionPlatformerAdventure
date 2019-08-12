@@ -60,7 +60,6 @@
      <Compile Include="Assets\Resources\Scripts\EnemyFoot.cs" />
      <Compile Include="Assets\Resources\Scripts\FlashAlgorithm.cs" />
      <Compile Include="Assets\Resources\Scripts\OilAlgorithm.cs" />
-     <Compile Include="Assets\Resources\Scripts\Oilsplash.cs" />
      <Compile Include="Assets\Resources\Scripts\PipeFlash.cs" />
      <Compile Include="Assets\Resources\Scripts\Player.cs" />
      <Compile Include="Assets\Resources\Scripts\PlayerSkills.cs" />
