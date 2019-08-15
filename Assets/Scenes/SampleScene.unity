@@ -2202,7 +2202,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &661825824
 Transform:
   m_ObjectHideFlags: 0
@@ -6938,6 +6938,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmokeFire
       objectReference: {fileID: 0}
+    - target: {fileID: 744459135028279300, guid: 99f93f102f4865145a05c800234575a8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 744459135028279299, guid: 99f93f102f4865145a05c800234575a8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8432,12 +8437,12 @@ WindZone:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2139425144}
   m_Enabled: 1
-  m_Mode: 0
-  m_Radius: 2.73
+  m_Mode: 1
+  m_Radius: 6.16
   m_WindMain: 0.1
   m_WindTurbulence: 0
   m_WindPulseMagnitude: 0.5
-  m_WindPulseFrequency: 24.13
+  m_WindPulseFrequency: 0.5
 --- !u!1 &2140687036
 GameObject:
   m_ObjectHideFlags: 0
