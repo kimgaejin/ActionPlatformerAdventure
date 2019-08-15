@@ -20,6 +20,7 @@ public class SampleEnemyAI : MonoBehaviour
     private bool mindAnomaly = false;
     private bool behaviroAnomaly = false;
     private bool earAnomaly = false;
+    
 
     private Vector3 sightTarget;
 
@@ -28,6 +29,7 @@ public class SampleEnemyAI : MonoBehaviour
     private bool isFoundPlayer = false;
     private int jumpCount = 0;
     private int jumpCountMax = 1;
+    private int blindCount = 0;
 
     private void Start()
     {
@@ -167,9 +169,14 @@ public class SampleEnemyAI : MonoBehaviour
     public void SetBindness(bool type)
     {
         if (type == true)
+        {
+            blindCount++;
             sightAnomaly = true;
+        }
         else
+        {
             sightAnomaly = false;
+        }
     }
 
     public void Smoke()

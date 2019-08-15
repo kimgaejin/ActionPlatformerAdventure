@@ -4,33 +4,37 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    /* 필요 기능
-     * - 좌우 이동
-     * - 점프
-     * - 대쉬
-     * - 스킬
-     * - 피격
-     */
+    //===================================
+    // 조절 가능한 변수
 
     public float movingSpeed = 4.0f;
+    [Tooltip("한 칸은 5, 두 칸은 6.5")]
     public float jumpingPower = 5.0f;
-    // 한 칸은 5, 두 칸은 6.5
     public float dashCooltime = 2.0f;
     public float dashSpeed = 9.7f;
     public float DASH_RESPONE_TIME = 0.5f;
     public float STUN_TIME = 3.0f;
+    public float PANIC_TIME = 5.0f;
 
     [Tooltip("넉백 파워")]
     public float knockbackScalarPower = 5.0f;
     public float KNOCKBACK_UPWARD_POWER = 2.0f;
 
+    //===================================
+    // 밖에서 건들 ㄴ
     private Rigidbody rigid;
 
     private bool canControll = true;
     private Vector3 moveVector = Vector3.zero;
     private int jumpCount;
     private int JumpCount_max = 1;
+
     private bool canDash = true;
+
+    private bool controlPlayer = true;
+    private bool controlMove = true;
+    private bool controlJump = true;
+    private bool controlSkill = true;
 
     private void Awake()
     {
@@ -42,6 +46,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         StartCoroutine("DashExecute");
+        StartCoroutine("PanicExecute");
     }
 
     private void Update()
@@ -54,7 +59,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (canControll == false) return;
+        //if (canControll == false) return;
 
         transform.position += moveVector;
     }
@@ -69,6 +74,9 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
+        if (controlPlayer == false) return;
+        if (controlMove == false) return;
+
         moveVector = Vector3.zero;
         if (Input.anyKey)
         {
@@ -86,17 +94,24 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
+        if (controlPlayer == false) return;
+        if (controlJump == false) return;
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (jumpCount <= 0) return;
 
             rigid.AddForce(Vector3.up * jumpingPower, ForceMode.Impulse);
-            //jumpCount--;
+            jumpCount--;
         }
     }
 
     private void Dash()
     {
+        if (controlPlayer == false) return;
+        if (controlMove == false) return;
+        if (controlSkill == false) return;
+
         if (Input.GetKeyUp(KeyCode.LeftArrow)) StartCoroutine("DashLeftExecute");
         if (Input.GetKeyUp(KeyCode.RightArrow)) StartCoroutine("DashRightExecute");
     }
@@ -107,7 +122,7 @@ public class Player : MonoBehaviour
         distance = new Vector3(distance.x, 0, 0);
         Vector2 power = (Vector2)distance * knockbackScalarPower + (Vector2.up * KNOCKBACK_UPWARD_POWER);
         rigid.AddForce(power, ForceMode.Impulse);
-        StartCoroutine("Stun");
+        StartCoroutine("StunExecute");
         
     }
 
@@ -186,7 +201,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    IEnumerator Stun()
+    IEnumerator StunExecute()
     {
         WaitForSeconds waitStun = new WaitForSeconds(STUN_TIME);
 
@@ -199,4 +214,34 @@ public class Player : MonoBehaviour
         }
     }
 
+    IEnumerator PanicExecute()
+    {
+        // 공포
+        // 좌우로 왔다갔다? (이건 혼란인가)
+        WaitForSeconds wait10 = new WaitForSeconds(0.1f);
+
+        while (true)
+        {
+            canControll = false;
+            for (int i = 0; i < PANIC_TIME * 10; i++)
+            {
+                float value = 0;
+                if (i % 5 == 0)
+                {
+                    value = Random.RandomRange(0, 2);
+                    if (value < 1) moveVector = Vector3.right;
+                    else moveVector = -Vector3.right;
+                }
+                moveVector = moveVector.normalized * movingSpeed * Time.deltaTime;
+                yield return wait10;
+            }
+            canControll = true;
+            yield break;
+        }
+    }
+
+    public void OnGround()
+    {
+        jumpCount = JumpCount_max;
+    }
 }

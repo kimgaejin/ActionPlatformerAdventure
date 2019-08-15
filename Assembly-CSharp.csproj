@@ -68,8 +68,10 @@
     <Compile Include="Assets\Resources\Scripts\FlashAlgorithm.cs" />
     <Compile Include="Assets\Resources\Scripts\gizmotest.cs" />
     <Compile Include="Assets\Resources\Scripts\OilAlgorithm.cs" />
+    <Compile Include="Assets\Resources\Scripts\OrcAI.cs" />
     <Compile Include="Assets\Resources\Scripts\PipeFlash.cs" />
     <Compile Include="Assets\Resources\Scripts\Player.cs" />
+    <Compile Include="Assets\Resources\Scripts\PlayerFoot.cs" />
     <Compile Include="Assets\Resources\Scripts\PlayerSkills.cs" />
     <Compile Include="Assets\Resources\Scripts\SampleEnemyAI.cs" />
     <Compile Include="Assets\Resources\Scripts\SceneMng.cs" />
