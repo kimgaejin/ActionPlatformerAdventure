@@ -12,6 +12,7 @@ TagManager:
   - BLASTSOUND
   - SPIKE
   - FAN
+  - LAVA
   layers:
   - Default
   - TransparentFX
