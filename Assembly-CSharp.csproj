@@ -67,6 +67,7 @@
      <Compile Include="Assets\Resources\Scripts\SampleEnemyAI.cs" />
      <Compile Include="Assets\Resources\Scripts\SceneMng.cs" />
      <Compile Include="Assets\Resources\Scripts\SmokeAlgorithm.cs" />
+     <Compile Include="Assets\Resources\Scripts\SpikeAlgorithm.cs" />
      <None Include="Assets\Resources\FreeVoxelGirl\ReadMe.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/moder/Documents/GitHub/ActionPlatformerAdventure/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
