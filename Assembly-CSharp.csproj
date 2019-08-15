@@ -58,6 +58,7 @@
      <Compile Include="Assets\Resources\Scripts\BlastsoundAlgorithm.cs" />
      <Compile Include="Assets\Resources\Scripts\DestroyPlatform.cs" />
      <Compile Include="Assets\Resources\Scripts\EnemyFoot.cs" />
+     <Compile Include="Assets\Resources\Scripts\FanAlgorithm.cs" />
      <Compile Include="Assets\Resources\Scripts\FlashAlgorithm.cs" />
      <Compile Include="Assets\Resources\Scripts\gizmotest.cs" />
      <Compile Include="Assets\Resources\Scripts\OilAlgorithm.cs" />
@@ -67,6 +68,7 @@
      <Compile Include="Assets\Resources\Scripts\SampleEnemyAI.cs" />
      <Compile Include="Assets\Resources\Scripts\SceneMng.cs" />
      <Compile Include="Assets\Resources\Scripts\SmokeAlgorithm.cs" />
+     <Compile Include="Assets\Resources\Scripts\SmokeParticle.cs" />
      <Compile Include="Assets\Resources\Scripts\SpikeAlgorithm.cs" />
      <None Include="Assets\Resources\FreeVoxelGirl\ReadMe.txt" />
  <Reference Include="Unity.Timeline.Editor">
