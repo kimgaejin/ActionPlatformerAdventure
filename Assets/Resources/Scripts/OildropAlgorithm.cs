@@ -15,7 +15,7 @@ public class OildropAlgorithm : MonoBehaviour
     {
         Oil = Resources.Load<GameObject>("Prefabs/Oil2");
         OilDrop = Resources.Load<GameObject>("Prefabs/Oildrop");
-        Invoke("ColliderON",0.4f);
+        Invoke("ColliderON",0.5f);
     }
 
     // Update is called once per frame
@@ -54,7 +54,7 @@ public class OildropAlgorithm : MonoBehaviour
 
         if (Lcolls.Length == 0)
         {
-            Debug.Log("아무태그에 속하지 않음");
+            Debug.Log("왼쪽아무태그에 속하지 않음");
             CreateOilDrop(LeftVec);
             return Vector3.zero;
         }
@@ -81,7 +81,7 @@ public class OildropAlgorithm : MonoBehaviour
 
         if (Rcolls.Length == 0)
         {
-            Debug.Log("아무태그에 속하지 않음");
+            Debug.Log("오른쪽아무태그에 속하지 않음");
             CreateOilDrop(RightVec);
             return Vector3.zero;
         }
