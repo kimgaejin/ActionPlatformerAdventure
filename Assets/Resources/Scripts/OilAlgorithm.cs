@@ -129,6 +129,7 @@ public class OilAlgorithm : MonoBehaviour
                     RtempVec = RSplash(RtempVec);
 
                 totalsplash = i;
+                Debug.Log("기름 생성");
                 yield return new WaitForSeconds(0.01f);
                 
             }

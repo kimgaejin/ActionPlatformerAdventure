@@ -20,7 +20,7 @@ public class FlashAlgorithm : MonoBehaviour
         {
             Destroy(this.gameObject);
             Flash();
-            Debug.Log("시간지나서 섬광 격발");
+            //Debug.Log("시간지나서 섬광 격발");
 
         }
     }

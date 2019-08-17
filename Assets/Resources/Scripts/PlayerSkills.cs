@@ -9,7 +9,7 @@ public class PlayerSkills : MonoBehaviour
     //투척형 스킬 변수들
     public float ThrowPower;
 
-    public GameObject ThrowObject;
+    //public GameObject ThrowObject;
     public GameObject ThrowSmoke;
     public GameObject ThrowFlash;
     public GameObject ThrowBlastsound;
@@ -32,7 +32,7 @@ public class PlayerSkills : MonoBehaviour
     {
         ThrowFlash = Resources.Load<GameObject>("Prefabs/ThrowFlash");
         Arrow = GameObject.Find("ArrowPoint");
-        ThrowObject = Resources.Load<GameObject>("Prefabs/ThrowObject");
+        //ThrowObject = Resources.Load<GameObject>("Prefabs/ThrowObject");
         ThrowSmoke = Resources.Load<GameObject>("Prefabs/ThrowSmoke");
         ThrowBlastsound = Resources.Load<GameObject>("Prefabs/ThrowBlastsound");
         Arrowrnd = Arrow.transform.Find("Arrow_0").GetComponent<SpriteRenderer>();
