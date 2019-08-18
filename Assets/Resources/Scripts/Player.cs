@@ -27,10 +27,18 @@ public class Player : MonoBehaviour
     private Rigidbody rigid;
 
     private bool canControll = true;
+    //private bool canMove;
+    //private bool canJump;
     private Vector3 moveVector = Vector3.zero;
     private int jumpCount;
     private int JumpCount_max = 1;
     private bool canDash = true;
+
+    /// <summary>
+    ///정민이의 체력 및 내성 시스템
+    /// </summary>
+    public int HP;
+
 
     private void Awake()
     {

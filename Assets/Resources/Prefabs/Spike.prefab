@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 118307292026092377}
   - component: {fileID: 5286916263602329078}
   - component: {fileID: 4231628395990020326}
-  m_Layer: 0
+  - component: {fileID: 222177478}
+  m_Layer: 12
   m_Name: Capsule (9)
   m_TagString: SPIKE
   m_Icon: {fileID: 0}
@@ -86,12 +87,28 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193978816939945880}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &222177478
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193978816939945880}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 122
+  m_CollisionDetection: 0
 --- !u!1 &389689085402612655
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,7 +191,8 @@ GameObject:
   - component: {fileID: 57742467002934220}
   - component: {fileID: 4514151762963489392}
   - component: {fileID: 7792071984283937316}
-  m_Layer: 0
+  - component: {fileID: 948867511}
+  m_Layer: 12
   m_Name: Capsule (4)
   m_TagString: SPIKE
   m_Icon: {fileID: 0}
@@ -248,12 +266,28 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1192051045936734848}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &948867511
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192051045936734848}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 122
+  m_CollisionDetection: 0
 --- !u!1 &1547625318188235441
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +300,8 @@ GameObject:
   - component: {fileID: 4285818022821669412}
   - component: {fileID: 4231124474346230010}
   - component: {fileID: 6056061124095894190}
-  m_Layer: 0
+  - component: {fileID: 553577783}
+  m_Layer: 12
   m_Name: Capsule (8)
   m_TagString: SPIKE
   m_Icon: {fileID: 0}
@@ -340,12 +375,28 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547625318188235441}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &553577783
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547625318188235441}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 122
+  m_CollisionDetection: 0
 --- !u!1 &1883312212031838189
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,7 +409,8 @@ GameObject:
   - component: {fileID: 6631627139485589164}
   - component: {fileID: 2689521810893719221}
   - component: {fileID: 5172337477596182114}
-  m_Layer: 0
+  - component: {fileID: 1388474325}
+  m_Layer: 12
   m_Name: Capsule (10)
   m_TagString: SPIKE
   m_Icon: {fileID: 0}
@@ -432,12 +484,28 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1883312212031838189}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1388474325
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883312212031838189}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 122
+  m_CollisionDetection: 0
 --- !u!1 &2246878203853653134
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,7 +518,8 @@ GameObject:
   - component: {fileID: 2042210513810928404}
   - component: {fileID: 383802407462505601}
   - component: {fileID: 3986555871311355548}
-  m_Layer: 0
+  - component: {fileID: 603163467}
+  m_Layer: 12
   m_Name: Capsule (1)
   m_TagString: SPIKE
   m_Icon: {fileID: 0}
@@ -524,12 +593,28 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2246878203853653134}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &603163467
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2246878203853653134}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 122
+  m_CollisionDetection: 0
 --- !u!1 &2823547288681276146
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,7 +627,8 @@ GameObject:
   - component: {fileID: 6443205375110381067}
   - component: {fileID: 4033800342636604349}
   - component: {fileID: 3078282641402418618}
-  m_Layer: 0
+  - component: {fileID: 24872800}
+  m_Layer: 12
   m_Name: Capsule (11)
   m_TagString: SPIKE
   m_Icon: {fileID: 0}
@@ -616,12 +702,28 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2823547288681276146}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &24872800
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2823547288681276146}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 122
+  m_CollisionDetection: 0
 --- !u!1 &4927074378520740951
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,7 +736,8 @@ GameObject:
   - component: {fileID: 1080584699808998779}
   - component: {fileID: 8565320319023380704}
   - component: {fileID: 885927985396851584}
-  m_Layer: 0
+  - component: {fileID: 494914827}
+  m_Layer: 12
   m_Name: Capsule (7)
   m_TagString: SPIKE
   m_Icon: {fileID: 0}
@@ -708,12 +811,28 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4927074378520740951}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &494914827
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4927074378520740951}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 122
+  m_CollisionDetection: 0
 --- !u!1 &6886031257306478973
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,7 +845,8 @@ GameObject:
   - component: {fileID: 424936456669190756}
   - component: {fileID: 1928401378461731703}
   - component: {fileID: 266641998960399636}
-  m_Layer: 0
+  - component: {fileID: 54684352}
+  m_Layer: 12
   m_Name: Capsule (12)
   m_TagString: SPIKE
   m_Icon: {fileID: 0}
@@ -800,12 +920,28 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6886031257306478973}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &54684352
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6886031257306478973}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 122
+  m_CollisionDetection: 0
 --- !u!1 &7159124749889605865
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,7 +954,8 @@ GameObject:
   - component: {fileID: 8144287410824864558}
   - component: {fileID: 7343627881012621252}
   - component: {fileID: 701817296120919702}
-  m_Layer: 0
+  - component: {fileID: 211309530}
+  m_Layer: 12
   m_Name: Capsule (2)
   m_TagString: SPIKE
   m_Icon: {fileID: 0}
@@ -892,12 +1029,28 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7159124749889605865}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &211309530
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7159124749889605865}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 122
+  m_CollisionDetection: 0
 --- !u!1 &7184452923095652643
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,7 +1063,8 @@ GameObject:
   - component: {fileID: 1286067551893225350}
   - component: {fileID: 4908169762779661640}
   - component: {fileID: 6807085084989712342}
-  m_Layer: 0
+  - component: {fileID: 2095205045}
+  m_Layer: 12
   m_Name: Capsule (3)
   m_TagString: SPIKE
   m_Icon: {fileID: 0}
@@ -984,12 +1138,28 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7184452923095652643}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &2095205045
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7184452923095652643}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 122
+  m_CollisionDetection: 0
 --- !u!1 &7664200043834768780
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,7 +1172,8 @@ GameObject:
   - component: {fileID: 7776539966425395337}
   - component: {fileID: 3307118671162463781}
   - component: {fileID: 7882091202060257458}
-  m_Layer: 0
+  - component: {fileID: 1747841517}
+  m_Layer: 12
   m_Name: Capsule (5)
   m_TagString: SPIKE
   m_Icon: {fileID: 0}
@@ -1076,12 +1247,28 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7664200043834768780}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1747841517
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7664200043834768780}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 122
+  m_CollisionDetection: 0
 --- !u!1 &7971082603432151277
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,7 +1281,8 @@ GameObject:
   - component: {fileID: 6947086321351948083}
   - component: {fileID: 6428993510296595740}
   - component: {fileID: 2654254217467769955}
-  m_Layer: 0
+  - component: {fileID: 919691432}
+  m_Layer: 12
   m_Name: Capsule (6)
   m_TagString: SPIKE
   m_Icon: {fileID: 0}
@@ -1168,12 +1356,28 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7971082603432151277}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &919691432
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7971082603432151277}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 122
+  m_CollisionDetection: 0
 --- !u!1 &9084837474856337306
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,7 +1390,8 @@ GameObject:
   - component: {fileID: 4694879604682374321}
   - component: {fileID: 5392774754551424117}
   - component: {fileID: 6007897641531596283}
-  m_Layer: 0
+  - component: {fileID: 391990502}
+  m_Layer: 12
   m_Name: Capsule
   m_TagString: SPIKE
   m_Icon: {fileID: 0}
@@ -1260,9 +1465,25 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9084837474856337306}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &391990502
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9084837474856337306}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 122
+  m_CollisionDetection: 0
