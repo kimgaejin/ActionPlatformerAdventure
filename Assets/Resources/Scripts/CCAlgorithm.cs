@@ -38,7 +38,10 @@ public class CCAlgorithm : MonoBehaviour
     public int SilenceStack;
     public bool isSilenceStack;
     public float SilenceStackTime;
-    
+
+
+    /// TEST
+    GameObject PP;
 
     void Awake()
     {
@@ -46,6 +49,14 @@ public class CCAlgorithm : MonoBehaviour
     }
     void Start()
     {
+        PP = GameObject.Find("PP");
+
+        if (transform.position.x > PP.transform.position.x)
+            print("적이 왼쪽에 있습니다.");
+        else
+            print("적이 오른쪽에 있습니다.");
+       // print(Vector3.Distance(transform.position,PP.transform.position));
+
         AirborneToleranceReduceCooltime = 30.0f;
         
         AirborneStack = 0;
