@@ -7,12 +7,18 @@ public enum Kind
     Airborne,
     Blind,
     Silence,
+    Fear,
 
 };
 
 public class CCAlgorithm : MonoBehaviour
 {
     public static CCAlgorithm instance;
+
+    Rigidbody rigi;
+
+    /// TEST
+    GameObject PP;
 
     public bool isCC;
 
@@ -26,22 +32,30 @@ public class CCAlgorithm : MonoBehaviour
     private float FourstackForce;
     public float AirborneStackTime;
     public bool isAirborneStack;
+    public bool isAirborne;
 
     //////////////////////////////////////////////////////////
     public float BlindToleranceReduceCooltime;
     public int BlindStack;
     public float BlindStackTime;
     public bool isBlindStack;
+    public bool isBlind;
 
     //////////////////////////////////////////////////////////
     public float SilenceToleranceReduceCooltime;
     public int SilenceStack;
     public bool isSilenceStack;
     public float SilenceStackTime;
+    public bool isSilence;
+
+    //////////////////////////////////////////////////////////
+    public float FearToleranceReduceCooltime;
+    public int FearStack;
+    public bool isFearStack;
+    public float FearStackTime;
+    public bool isFear;
 
 
-    /// TEST
-    GameObject PP;
 
     void Awake()
     {
@@ -49,16 +63,17 @@ public class CCAlgorithm : MonoBehaviour
     }
     void Start()
     {
+        rigi = GetComponent<Rigidbody>();
         PP = GameObject.Find("PP");
 
         if (transform.position.x > PP.transform.position.x)
             print("적이 왼쪽에 있습니다.");
         else
             print("적이 오른쪽에 있습니다.");
-       // print(Vector3.Distance(transform.position,PP.transform.position));
+        // print(Vector3.Distance(transform.position,PP.transform.position));
 
         AirborneToleranceReduceCooltime = 30.0f;
-        
+
         AirborneStack = 0;
         AirborneForce = 440;
         isCC = false;
@@ -67,27 +82,39 @@ public class CCAlgorithm : MonoBehaviour
         AirborneStackTime = 0;
         ThreeStackForce = AirborneForce - (AirborneForce * 0.3f);     //기본대비30%
         FourstackForce = ThreeStackForce * 0.5f;                      //3스택대비 50%
+        isAirborne = false;
 
 
         BlindToleranceReduceCooltime = 30.0f;
         BlindStack = 0;
         BlindStackTime = 0;
         isBlindStack = false;
+        isBlind = false;
 
         SilenceToleranceReduceCooltime = 30.0f;
         SilenceStack = 0;
         isSilenceStack = false;
         SilenceStackTime = 0;
+        isSilence = false;
+
+
+        FearToleranceReduceCooltime = 30f;
+        FearStack = 0;
+        isFearStack = false;
+        FearStackTime = 0;
+        isFear = false;
     }
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Keypad0)&&!isCC)
+        if (Input.GetKeyUp(KeyCode.Keypad0) && !isCC)
             ToleranceCalculate(Kind.Airborne);
         if (Input.GetKeyUp(KeyCode.Keypad1) && !isCC)
             ToleranceCalculate(Kind.Blind);
         if (Input.GetKeyUp(KeyCode.Keypad2) && !isCC)
             ToleranceCalculate(Kind.Silence);
+        if (Input.GetKeyUp(KeyCode.Keypad3) && !isCC)
+            ToleranceCalculate(Kind.Fear);
 
 
     }
@@ -104,7 +131,7 @@ public class CCAlgorithm : MonoBehaviour
         {
             isAirborneStack = true;     // 1스택 이상이면 true
             AirborneStack++;
-            if(AirborneStack>5)
+            if (AirborneStack > 5)
             {
                 print("에어본 스택 초과, 발동X");
                 AirborneStack = 5;
@@ -115,7 +142,7 @@ public class CCAlgorithm : MonoBehaviour
 
             else if (AirborneStack == 3)
                 StartCoroutine(CCAirborne(ThreeStackForce, 1.4f));
-            
+
             else if (AirborneStack == 4)
                 StartCoroutine(CCAirborne(FourstackForce, 0.7f));
 
@@ -123,10 +150,10 @@ public class CCAlgorithm : MonoBehaviour
                 return;
 
             AirborneStackTime = 0;
-            
+
         }
 
-        else if(k==Kind.Blind)
+        else if (k == Kind.Blind)
         {
             isBlindStack = true;     // 1스택 이상이면 true
             BlindStack++;
@@ -156,7 +183,7 @@ public class CCAlgorithm : MonoBehaviour
             SilenceStack++;
             if (SilenceStack > 5)
             {
-                print("실명 스택 초과, 발동X");
+                print("침묵 스택 초과, 발동X");
                 SilenceStack = 5;
                 return;
             }
@@ -174,14 +201,40 @@ public class CCAlgorithm : MonoBehaviour
 
             SilenceStackTime = 0;
         }
+        else if (k == Kind.Fear)
+        {
+            isFearStack = true;     // 1스택 이상이면 true
+            FearStack++;
+            if (FearStack > 5)
+            {
+                print("공포 스택 초과, 발동X");
+                FearStack = 5;
+                return;
+            }
+            if (FearStack == 1 || FearStack == 2)
+                StartCoroutine(CCFear(5.0f));
+
+            else if (FearStack == 3)
+                StartCoroutine(CCFear(3.5f));
+
+            else if (FearStack == 4)
+                StartCoroutine(CCFear(1.75f));
+
+            else if (FearStack == 5)
+                return;
+
+            FearStackTime = 0;
+        }
     }
 
     IEnumerator CCAirborne(float AirborneForce, float CCtime)
     {
         isCC = true;
+        isAirborne = true;
         transform.GetComponent<Rigidbody>().AddForce(Vector3.up * AirborneForce);
 
         yield return new WaitForSeconds(CCtime);
+        isAirborne = false;
         isCC = false;
         StopCoroutine("CCAirborne");
     }
@@ -189,10 +242,12 @@ public class CCAlgorithm : MonoBehaviour
     IEnumerator CCBlind(float CCtime)
     {
         isCC = true;
+        isBlind = true;
         transform.Find("Blind").Find("Sprite").GetComponent<SpriteRenderer>().enabled = true;
         yield return new WaitForSeconds(CCtime);
 
         transform.Find("Blind").Find("Sprite").GetComponent<SpriteRenderer>().enabled = false;
+        isBlind = false;
         isCC = false;
         StopCoroutine("CCBlind");
     }
@@ -200,19 +255,59 @@ public class CCAlgorithm : MonoBehaviour
     IEnumerator CCSilence(float CCtime)
     {
         isCC = true;
+        isSilence = true;
         transform.Find("Silence").GetChild(0).GetComponent<MeshRenderer>().enabled = true;
         transform.Find("Silence").GetChild(1).GetComponent<MeshRenderer>().enabled = true;
         yield return new WaitForSeconds(CCtime);
         transform.Find("Silence").GetChild(0).GetComponent<MeshRenderer>().enabled = false;
         transform.Find("Silence").GetChild(1).GetComponent<MeshRenderer>().enabled = false;
-
+        isSilence = false;
         isCC = false;
         StopCoroutine("CCSilence");
     }
 
+    IEnumerator CCFear(float CCtime)
+    {
+        float tmptime = 0;
+
+        isCC = true;
+        isFear = true;
+
+        while (true)
+        {
+            tmptime += Time.deltaTime;
+            if (tmptime > CCtime)
+                break;
+
+            if (Mathf.Abs(GetComponent<Rigidbody>().velocity.x) > 10.0f)
+            {
+                GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity.normalized * 5.0f;
+                continue;
+
+            }
+            if (transform.position.x > PP.transform.position.x)
+            {
+                rigi.AddForce(Vector3.right * 30.0f);
+            }
+            else
+            {
+                rigi.AddForce(Vector3.left * 30.0f);
+            }
+
+            if (Mathf.Abs(GetComponent<Rigidbody>().velocity.x) > 10.0f)
+                GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity.normalized * 5.0f;
+
+            yield return null;
+        }
+
+        isFear = false;
+        isCC = false;
+        StopCoroutine("CCFear");
+    }
+
     IEnumerator CheckStackReduce()
     {
-        while(true)
+        while (true)
         {
             if (AirborneStackTime >= AirborneToleranceReduceCooltime)
             {
@@ -221,12 +316,19 @@ public class CCAlgorithm : MonoBehaviour
                 if (AirborneStack == 0)
                     isAirborneStack = false;
             }
-            if(BlindStackTime>=BlindToleranceReduceCooltime)
+            if (BlindStackTime >= BlindToleranceReduceCooltime)
             {
                 BlindStack--;
                 BlindStackTime = 0f;
                 if (BlindStack == 0)
                     isBlindStack = false;
+            }
+            if (SilenceStackTime >= SilenceToleranceReduceCooltime)
+            {
+                SilenceStack--;
+                SilenceStackTime = 0f;
+                if (SilenceStack == 0)
+                    isSilenceStack = false;
             }
             yield return new WaitForSeconds(0.3f);
         }
