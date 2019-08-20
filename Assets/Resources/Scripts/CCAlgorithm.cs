@@ -269,6 +269,7 @@ public class CCAlgorithm : MonoBehaviour
     IEnumerator CCFear(float CCtime)
     {
         float tmptime = 0;
+        Vector3 DirectVec;
 
         isCC = true;
         isFear = true;
@@ -278,25 +279,17 @@ public class CCAlgorithm : MonoBehaviour
             tmptime += Time.deltaTime;
             if (tmptime > CCtime)
                 break;
-
-            if (Mathf.Abs(GetComponent<Rigidbody>().velocity.x) > 10.0f)
-            {
-                GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity.normalized * 5.0f;
-                continue;
-
-            }
+            
             if (transform.position.x > PP.transform.position.x)
             {
-                rigi.AddForce(Vector3.right * 30.0f);
+                DirectVec = Vector3.right;
             }
             else
             {
-                rigi.AddForce(Vector3.left * 30.0f);
+                DirectVec = Vector3.left;
             }
 
-            if (Mathf.Abs(GetComponent<Rigidbody>().velocity.x) > 10.0f)
-                GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity.normalized * 5.0f;
-
+            transform.position += DirectVec.normalized * 2.0f * Time.deltaTime;
             yield return null;
         }
 
