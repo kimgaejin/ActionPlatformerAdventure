@@ -8,6 +8,8 @@ public enum Kind
     Blind,
     Silence,
     Fear,
+    Charm,
+    Taunt,
 
 };
 
@@ -55,6 +57,20 @@ public class CCAlgorithm : MonoBehaviour
     public float FearStackTime;
     public bool isFear;
 
+    //////////////////////////////////////////////////////////
+    public float CharmToleranceReduceCooltime;
+    public int CharmStack;
+    public bool isCharmStack;
+    public float CharmStackTime;
+    public bool isCharm;
+
+    //////////////////////////////////////////////////////////
+    public float TauntToleranceReduceCooltime;
+    public int TauntStack;
+    public bool isTauntStack;
+    public float TauntStackTime;
+    public bool isTaunt;
+
 
 
     void Awake()
@@ -66,10 +82,10 @@ public class CCAlgorithm : MonoBehaviour
         rigi = GetComponent<Rigidbody>();
         PP = GameObject.Find("PP");
 
-        if (transform.position.x > PP.transform.position.x)
-            print("적이 왼쪽에 있습니다.");
-        else
-            print("적이 오른쪽에 있습니다.");
+        //if (transform.position.x > PP.transform.position.x)
+        //    print("적이 왼쪽에 있습니다.");
+        //else
+        //    print("적이 오른쪽에 있습니다.");
         // print(Vector3.Distance(transform.position,PP.transform.position));
 
         AirborneToleranceReduceCooltime = 30.0f;
@@ -103,6 +119,18 @@ public class CCAlgorithm : MonoBehaviour
         isFearStack = false;
         FearStackTime = 0;
         isFear = false;
+
+        CharmToleranceReduceCooltime = 30f;
+        CharmStack = 0;
+        isCharmStack = false;
+        CharmStackTime = 0;
+        isCharm = false;
+
+        TauntToleranceReduceCooltime = 30f;
+        TauntStack = 0;
+        isTauntStack = false;
+        TauntStackTime = 0;
+        isTaunt = false;
     }
 
     void Update()
@@ -115,9 +143,14 @@ public class CCAlgorithm : MonoBehaviour
             ToleranceCalculate(Kind.Silence);
         if (Input.GetKeyUp(KeyCode.Keypad3) && !isCC)
             ToleranceCalculate(Kind.Fear);
+        if (Input.GetKeyUp(KeyCode.Keypad4) && !isCC)
+            ToleranceCalculate(Kind.Charm);
+        if (Input.GetKeyUp(KeyCode.Keypad5) && !isCC)
+            ToleranceCalculate(Kind.Taunt);
 
 
     }
+
     void FixedUpdate()
     {
         if (isAirborneStack)
@@ -225,6 +258,55 @@ public class CCAlgorithm : MonoBehaviour
 
             FearStackTime = 0;
         }
+        else if (k == Kind.Charm)
+        {
+            isCharmStack = true;     // 1스택 이상이면 true
+            CharmStack++;
+            if (CharmStack > 5)
+            {
+                print("공포 스택 초과, 발동X");
+                CharmStack = 5;
+                return;
+            }
+            if (CharmStack == 1 || CharmStack == 2)
+                StartCoroutine(CCCharm(5.0f));
+
+            else if (CharmStack == 3)
+                StartCoroutine(CCCharm(3.5f));
+
+            else if (CharmStack == 4)
+                StartCoroutine(CCCharm(1.75f));
+
+            else if (CharmStack == 5)
+                return;
+
+            CharmStackTime = 0;
+        }
+        else if (k == Kind.Taunt)
+        {
+            isTauntStack = true;     // 1스택 이상이면 true
+            TauntStack++;
+            if (TauntStack > 5)
+            {
+                print("도발 스택 초과, 발동X");
+                TauntStack = 5;
+                return;
+            }
+            if (TauntStack == 1 || TauntStack == 2)
+                StartCoroutine(CCTaunt(5.0f));
+
+            else if (TauntStack == 3)
+                StartCoroutine(CCTaunt(3.5f));
+
+            else if (TauntStack == 4)
+                StartCoroutine(CCTaunt(1.75f));
+
+            else if (TauntStack == 5)
+                return;
+
+            CharmStackTime = 0;
+        }
+
     }
 
     IEnumerator CCAirborne(float AirborneForce, float CCtime)
@@ -296,6 +378,59 @@ public class CCAlgorithm : MonoBehaviour
         isFear = false;
         isCC = false;
         StopCoroutine("CCFear");
+    }
+    IEnumerator CCCharm(float CCtime)
+    {
+        float tmptime = 0;
+        Vector3 DirectVec;
+
+        isCC = true;
+        isCharm = true;
+
+        while (true)
+        {
+            tmptime += Time.deltaTime;
+            if (tmptime > CCtime)
+                break;
+
+            if (transform.position.x > PP.transform.position.x)
+            {
+                DirectVec = Vector3.left;
+            }
+            else
+            {
+                DirectVec = Vector3.right;
+            }
+
+            transform.position += DirectVec.normalized * 2.0f * Time.deltaTime;
+            yield return null;
+        }
+
+        isCharm = false;
+        isCC = false;
+        StopCoroutine("CCCharm");
+    }
+
+    IEnumerator CCTaunt(float CCtime)       //이동불가, 상대쪽으로 투척 스킬 연속 사용
+    {
+        float tmptime = 0;
+
+        isCC = true;
+        isTaunt = true;
+
+        while (true)
+        {
+            tmptime += Time.deltaTime;
+            if (tmptime > CCtime)
+                break;
+            
+            
+            yield return null;
+        }
+
+        isTaunt = false;
+        isCC = false;
+        StopCoroutine("CCTaunt");
     }
 
     IEnumerator CheckStackReduce()
